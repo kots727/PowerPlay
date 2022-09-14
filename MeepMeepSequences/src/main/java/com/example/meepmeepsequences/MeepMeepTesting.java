@@ -19,19 +19,25 @@ public class MeepMeepTesting {
                 // Option: Set theme. Default = ColorSchemeRedDark()
                 .setColorScheme(new ColorSchemeRedDark())
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(0, 0, 0))
-                                .forward(30)
-                                .turn(Math.toRadians(90))
-                                .forward(30)
-                                .addDisplacementMarker(() -> {
-                                    /* Everything in the marker callback should be commented out */
-
-                                    // bot.shooter.shoot()
-                                    // bot.wobbleArm.lower()
-                                })
-                                .turn(Math.toRadians(90))
-                                .splineTo(new Vector2d(10, 15), 0)
-                                .turn(Math.toRadians(90))
+                 drive.trajectorySequenceBuilder(new Pose2d(70-12, 35)
+								.lineWithConstantHeading(70-12,12.5)
+								.lineWithLinearHeading(12,12.5,Math.toRadians(0))
+								.lineWithConstantHeading(12,70)
+                                                //cycles
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(6.6,23.3)
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(12,70)
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(6.6,23.3)
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(12,70)
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(6.6,23.3)
+								.lineWithConstantHeading(12,23.3)
+								.lineWithConstantHeading(12,70)
+                                                 //return to signal location
+								.lineWithConstantHeading(12,12)
                                 .build()
                 );
 
